@@ -21,3 +21,8 @@ Route::get('/', function () {
 Route::get('/pasien', [PasienController::class, 'index'])->name('pasien');
 Route::get('/tambahpasien', [PasienController::class, 'tambahpasien'])->name('tambahpasien');
 Route::post('/insertdata', [PasienController::class, 'insertdata'])->name('insertdata');
+Route::get('/showdata/{id}', [PasienController::class, 'showdata'])->name('showdata');
+Route::post('/updatedata/{id}', [PasienController::class, 'updatedata'])->name('updatedata');
+Route::get('/deletedata/{id}', [PasienController::class, 'deletedata'])->name('deletedata');
+
+

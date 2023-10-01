@@ -26,17 +26,20 @@
                     </tr>
                 </thead>
                 <tbody>
+                  @php
+                      $id = 1;
+                  @endphp
                   @foreach ($data as $row)
                   <tr>
-                    <th scope="row">{{ $row->id }}</th>
+                    <th scope="row">{{ $id++ }}</th>
                     <td>{{ $row->Nama }}</td>
                     <td>{{ $row->JenisKelamin }}</td>
                     <td>{{ $row->NomorTelepon }}</td> 
                     <td>{{ $row->created_at->format('D M Y')}}</td>   
                     <td>{{ $row->created_at->diffForHumans()}}</td>               
                     <td>
-                    <button type="button" class="btn btn-warning">Edit</button>
-                    <button type="button" class="btn btn-danger">Hapus</button>
+                    <a href ="/showdata/{{ $row->id }}"  class="btn btn-warning">Edit</a>
+                    <a href ="/deletedata/{{ $row->id }}" class="btn btn-danger">Hapus</a>
                     </td>
                     </tr>
 
@@ -46,9 +49,9 @@
             </table>
         </div>
         @if ($message = Session::get('sukses'))
-          <div class="alert alert-warning" role="alert">
-              {{ $message }}
-          </div>                   
+        <div class="alert alert-success" role="alert">  
+          {{ $message }}
+        </div>                   
         @endif
     </div>
 
